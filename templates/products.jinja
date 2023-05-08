@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Productos</title>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <th>Nombre</th>
+        <th>Precio</th>
+        <th>Stock Actual</th>
+        <th>Proveedor</th>
+      </tr>
+      {% for product in products %}
+        <tr>
+          <td>{{ product.name }}</td>
+          <td>${{ product.price }}</td>
+          <td>{{ product.current_stock }}</td>
+          <td>{{ product.supplier }}</td>
+        </tr>
+      {% endfor %}
+    </table>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Proveedores</title>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>DNI</th>
+      </tr>
+      {% for supplier in suppliers %}
+        <tr>
+          <td>{{ supplier.first_name }}</td>
+          <td>{{ supplier.surname }}</td>
+          <td>{{ supplier.dni }}</td>
+        </tr>
+      {% endfor %}
+    </table>
+  </body>
+</html>
