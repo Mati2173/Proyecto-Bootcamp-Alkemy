@@ -8,7 +8,7 @@ class Supplier(models.Model):
     dni = models.IntegerField()
 
     def __str__(self):
-        return f'{self.first_name} {self.surname} - {self.dni}'
+        return f'{self.first_name} {self.surname}'
 
 
 class Product(models.Model):
@@ -18,4 +18,4 @@ class Product(models.Model):
     supplier = models.ForeignKey(Supplier, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f'{self.name}: ${self.price}'
+        return f'{self.name}'
