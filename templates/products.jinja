@@ -1,24 +1,25 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Productos</title>
-  </head>
-  <body>
+{% extends 'index.jinja' %}
+
+{% block content %}
+    <h2>Lista De Productos</h2>
     <table>
-      <tr>
-        <th>Nombre</th>
-        <th>Precio</th>
-        <th>Stock Actual</th>
-        <th>Proveedor</th>
-      </tr>
-      {% for product in products %}
-        <tr>
-          <td>{{ product.name }}</td>
-          <td>${{ product.price }}</td>
-          <td>{{ product.current_stock }}</td>
-          <td>{{ product.supplier }}</td>
-        </tr>
-      {% endfor %}
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>Stock Actual</th>
+                <th>Proveedor</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for product in products %}
+            <tr>
+                <td>{{ product.name }}</td>
+                <td>${{ product.price }}</td>
+                <td>{{ product.current_stock }}</td>
+                <td>{{ product.supplier }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
     </table>
-  </body>
-</html>
+{% endblock %}

@@ -1,22 +1,23 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Proveedores</title>
-  </head>
-  <body>
+{% extends 'index.jinja' %}
+
+{% block content %}
+    <h2>Lista De Proveedores</h2>
     <table>
-      <tr>
-        <th>Nombre</th>
-        <th>Apellido</th>
-        <th>DNI</th>
-      </tr>
-      {% for supplier in suppliers %}
-        <tr>
-          <td>{{ supplier.first_name }}</td>
-          <td>{{ supplier.surname }}</td>
-          <td>{{ supplier.dni }}</td>
-        </tr>
-      {% endfor %}
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>DNI</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for supplier in suppliers %}
+            <tr>
+                <td>{{ supplier.first_name }}</td>
+                <td>{{ supplier.surname }}</td>
+                <td>{{ supplier.dni }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
     </table>
-  </body>
-</html>
+{% endblock %}
