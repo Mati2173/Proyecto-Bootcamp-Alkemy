@@ -1,9 +1,12 @@
-from django.shortcuts import render, HttpResponseRedirect
+from django.shortcuts import render, redirect
 from .models import Product, Supplier
 from .forms import ProductForm, SupplierForm
 
 
 # Create your views here.
+def index(request):
+    return render(request, 'index.jinja')
+
 def products_list(request):
     products = Product.objects.all()
     context = {'products': products}
@@ -17,32 +20,34 @@ def suppliers_list(request):
 
 
 def create_product(request):
-    form = ProductForm()
-
     if request.method == 'POST':
         form = ProductForm(request.POST)
 
         if form.is_valid():
             form.save()
+            return redirect('/products/')
         else:
-            return HttpResponseRedirect('/create_product/')
+            return redirect('/create_product/')
+    else:
+        form = ProductForm()
 
-    context = {'form': form}
+    context = {'form': form, 'element_to_create': 'Producto'}
 
-    return render(request, 'create_product.jinja', context)
+    return render(request, 'creation.jinja', context)
 
 
 def create_supplier(request):
-    form = SupplierForm()
-
     if request.method == 'POST':
         form = SupplierForm(request.POST)
 
         if form.is_valid():
             form.save()
+            return redirect('/suppliers/')
         else:
-            return HttpResponseRedirect('/create_supplier.jinja/')
+            return redirect('/suppliers/create/')
+    else:
+        form = SupplierForm()
 
-    context = {'form': form}
+    context = {'form': form, 'element_to_create': 'Proveedor'}
 
-    return render(request, 'create_supplier.jinja', context)
+    return render(request, 'creation.jinja', context)
