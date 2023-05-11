@@ -2,22 +2,30 @@
 
 {% block content %}
     <h2>Lista De Proveedores</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>Nombre</th>
-                <th>Apellido</th>
-                <th>DNI</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for supplier in suppliers %}
-            <tr>
-                <td>{{ supplier.first_name }}</td>
-                <td>{{ supplier.surname }}</td>
-                <td>{{ supplier.dni }}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Apellido</th>
+                                <th>DNI</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for supplier in suppliers %}
+                            <tr>
+                                <td>{{ supplier.first_name }}</td>
+                                <td>{{ supplier.surname }}</td>
+                                <td>{{ supplier.dni }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
